@@ -80,4 +80,4 @@ plt.plot(epochs, val_loss, marker='.', c='orange')
 plt.title('Training and validation loss')
 plt.legend()
 
-plt.savefig()
+plt.savefig("myplot.png")
