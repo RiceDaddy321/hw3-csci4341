@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 from keras.models import Sequential
 from keras.layers import Embedding, Dropout, Conv1D, MaxPool1D, LSTM, Dense, Activation
 from keras.utils import pad_sequences, to_categorical
@@ -55,3 +56,24 @@ model.summary()
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['acc'])
 
 history = model.fit(x_train, y_train, batch_size=100, epochs=10, validation_data=(x_test, y_test))
+
+acc = history.history['acc']
+val_acc = history.history['val_acc']
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+
+epochs = range(1, len(acc) + 1)
+
+plt.plot(epochs, acc, marker='.', c='blue')
+plt.plot(epochs, val_acc, marker='.', c='orange')
+plt.title('Training and validation accuracy')
+plt.legend()
+
+plt.figure()
+
+plt.plot(epochs, loss, marker='.', c='blue')
+plt.plot(epochs, val_loss, marker='.', c='orange')
+plt.title('Training and validation loss')
+plt.legend()
+
+plt.savefig()
