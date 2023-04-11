@@ -58,6 +58,9 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['acc']
 
 history = model.fit(x_train, y_train, batch_size=100, epochs=10, validation_data=(x_test, y_test))
 
+# save it just in case
+model.save('model.h5')
+
 acc = history.history['acc']
 val_acc = history.history['val_acc']
 loss = history.history['loss']
