@@ -50,7 +50,7 @@ model.add(Dropout(0.5))
 model.add(Conv1D(64, 5, padding='valid', activation='relu', strides=1))
 model.add(MaxPool1D(pool_size=4))
 model.add(LSTM(55))
-model.add(Dense(6))
+model.add(Dense(6, activation='softmax'))
 
 model.summary()
 
