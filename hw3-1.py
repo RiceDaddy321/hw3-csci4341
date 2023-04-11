@@ -59,7 +59,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['acc']
 history = model.fit(x_train, y_train, batch_size=100, epochs=10, validation_data=(x_test, y_test))
 
 # save it just in case
-model.save('model.h5')
+# model.save('model.h5')
 
 acc = history.history['acc']
 val_acc = history.history['val_acc']
@@ -68,16 +68,17 @@ val_loss = history.history['val_loss']
 
 epochs = range(1, len(acc) + 1)
 
-plt.plot(epochs, acc, marker='.', c='blue')
-plt.plot(epochs, val_acc, marker='.', c='orange')
+plt.plot(epochs, acc, marker='.', c='blue', label="Train")
+plt.plot(epochs, val_acc, marker='.', c='orange', label="Validation")
 plt.title('Training and validation accuracy')
 plt.legend()
 
+plt.savefig("acc.png")
 plt.figure()
 
-plt.plot(epochs, loss, marker='.', c='blue')
-plt.plot(epochs, val_loss, marker='.', c='orange')
+plt.plot(epochs, loss, marker='.', c='blue', label="Train")
+plt.plot(epochs, val_loss, marker='.', c='orange', label="Validation")
 plt.title('Training and validation loss')
 plt.legend()
 
-plt.savefig("myplot.png")
+plt.savefig("loss.png")
