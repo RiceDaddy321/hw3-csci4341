@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from keras.models import Sequential
 from keras.layers import Embedding, Dropout, Conv1D, MaxPool1D, LSTM, Dense, Activation
-from keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical
 from keras_preprocessing.sequence import pad_sequences
 import numpy as np
 import pandas as pd
