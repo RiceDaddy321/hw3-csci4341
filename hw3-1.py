@@ -56,7 +56,7 @@ model.summary()
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['acc'])
 
-history = model.fit(x_train, y_train, batch_size=100, epochs=10, validation_data=(x_test, y_test))
+history = model.fit(x_train, y_train, batch_size=100, epochs=30, validation_data=(x_test, y_test))
 
 # save it just in case
 # model.save('model.h5')
